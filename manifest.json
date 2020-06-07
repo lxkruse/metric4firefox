@@ -1,0 +1,16 @@
+{
+
+  "manifest_version": 2,
+  "name": "metric4firefox",
+  "version": "1.0",
+
+  "description": "A lightweight plugin for firefox that converts imperial units to metric units.",
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["convert.js"]
+    }
+  ]
+
+}
