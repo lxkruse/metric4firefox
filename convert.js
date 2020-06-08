@@ -3,7 +3,7 @@ document.onmouseup = document.onkeyup = function() {
   checkUnitPattern(selection);
 };
 
-//returns the number
+//returns the unit being used in selection
 function checkUnitPattern(text){
 
   var unitVariants = ["inch","in","inches","\″","yard"];
@@ -29,6 +29,6 @@ function checkUnitPattern(text){
   }
 
   //doesnt match any units
-  alert("nope");
-  return "nope";
+  alert("not a unit");
+  return "not a unit";
 }
