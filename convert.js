@@ -1,10 +1,10 @@
 document.onmouseup = document.onkeyup = function() {
   var selection = window.getSelection().toString();
-  checkUnitPattern(selection);
+  convertNumber(selection,getUnit(selection));
 };
 
 //returns the unit being used in selection
-function checkUnitPattern(text){
+function getUnit(text){
 
   var unitVariants = ["inch","in","inches","\″","yard"];
   var unitDict = {
@@ -23,12 +23,29 @@ function checkUnitPattern(text){
 
     if(reGap.test(text)||re.test(text)){
       //decode unit
-      alert(unitDict[unitVariants[i]]);
       return unitDict[unitVariants[i]];
     }
   }
 
   //doesnt match any units
-  alert("not a unit");
   return "not a unit";
+}
+
+function convertNumber(text,unit){
+  var conversionDict = {
+    "inch": 2.54
+  };
+
+  var metricDict = {
+    "inch": "cm"
+  };
+
+  if(unit!="not a unit"){
+    var number = parseFloat(text);
+    var result = number*conversionDict[unit];
+    var output = result.toString() + metricDict[unit];
+
+    alert(output);
+  }
+
 }
